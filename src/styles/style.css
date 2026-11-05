@@ -145,7 +145,7 @@ a:focus-visible {
   height: 760px;
   overflow: hidden;
   background-color: #1a0e08;
-  background-image: url('../assets/hero-bg.png');
+  background-image: url('../assets/hero-bg.webp');
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -935,7 +935,7 @@ a:focus-visible {
   height: 180px;
   background:
     linear-gradient(rgb(18 11 7 / 96%), rgb(18 11 7 / 96%)),
-    url('../assets/hero-bg.png') center 62% / cover;
+    url('../assets/hero-bg.webp') center 62% / cover;
   color: var(--color-cream);
 }
 

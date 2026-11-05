@@ -12,6 +12,9 @@ export default defineConfig({
   },
   plugins: [
     ViteImageOptimizer({
+      // The hero is pre-encoded as high-quality WebP. Re-encoding it here
+      // noticeably shifts the warm skin tones toward sepia.
+      exclude: /hero-bg(?:-[^/]+)?\.webp$/i,
       // Keep <symbol> sprites intact (icons.svg) — SVGO drops "unused" symbols and ids by default
       svg: {
         plugins: [
