@@ -1,11 +1,527 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aleksandra Masaz</title>
-</head>
-<body>
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Profesjonalny masaż i chwila prawdziwego relaksu w gabinecie Aleksandry."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Playfair+Display:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/styles/reset.css" />
+    <link rel="stylesheet" href="./src/styles/style.css" />
+    <title>Masaż & Relaks — Aleksandra Masaż</title>
+  </head>
+  <body>
+    <div class="site-shell">
+      <main>
+        <section class="hero" id="start" aria-labelledby="hero-title">
+          <header class="site-header">
+            <div class="container site-header__inner">
+              <a class="brand" href="#start" aria-label="Masaż & Relaks — strona główna">
+                <img class="brand__image" src="./src/assets/logo.png" alt="Masaż & Relaks" />
+              </a>
 
-</body>
+              <button
+                class="menu-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="site-navigation"
+              >
+                Menu
+              </button>
+
+              <nav class="site-nav" id="site-navigation" aria-label="Główna nawigacja">
+                <ul class="site-nav__list">
+                  <li class="site-nav__item">
+                    <a class="site-nav__link" href="#start">Strona główna</a>
+                  </li>
+                  <li class="site-nav__item">
+                    <a class="site-nav__link" href="#oferta">Oferta</a>
+                  </li>
+                  <li class="site-nav__item">
+                    <a class="site-nav__link" href="#o-mnie">O mnie</a>
+                  </li>
+                  <li class="site-nav__item">
+                    <a class="site-nav__link" href="#opinie">Opinie</a>
+                  </li>
+                  <li class="site-nav__item">
+                    <a class="site-nav__link" href="#kontakt">Kontakt</a>
+                  </li>
+                </ul>
+              </nav>
+
+              <a class="button site-header__cta" href="#kontakt">
+                <img
+                  class="button__icon"
+                  src="./src/assets/icon-calendar.png"
+                  alt=""
+                  aria-hidden="true"
+                />
+                <span class="button__label">Umów wizytę</span>
+                <span class="button__arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </header>
+
+          <div class="container hero__inner">
+            <div class="hero__copy">
+              <p class="eyebrow hero__eyebrow">Profesjonalny masaż</p>
+              <p class="hero__intro">
+                Odkryj moc masażu i pozwól sobie na chwilę prawdziwego relaksu.
+              </p>
+              <h1 class="hero__title" id="hero-title">Harmonia ciała<br />i spokój ducha</h1>
+              <a class="button hero__button" href="#oferta">
+                <img
+                  class="button__icon"
+                  src="./src/assets/icon-calendar.png"
+                  alt=""
+                  aria-hidden="true"
+                />
+                <span class="button__label">Poznaj ofertę</span>
+                <span class="button__arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="trust-band" aria-label="Dlaczego warto nam zaufać">
+            <div class="container trust-band__inner">
+              <div class="trust-item">
+                <img
+                  class="trust-item__icon"
+                  src="./src/assets/icon-lotus.png"
+                  alt=""
+                  aria-hidden="true"
+                />
+                <span class="trust-item__label">6 lat doświadczenia</span>
+              </div>
+              <div class="trust-item">
+                <img
+                  class="trust-item__icon"
+                  src="./src/assets/icon-lotus.png"
+                  alt=""
+                  aria-hidden="true"
+                />
+                <span class="trust-item__label">Ponad 10 000 godzin praktyki</span>
+              </div>
+              <div class="trust-item">
+                <img
+                  class="trust-item__icon"
+                  src="./src/assets/icon-lotus.png"
+                  alt=""
+                  aria-hidden="true"
+                />
+                <span class="trust-item__label">20+ rodzajów masażu</span>
+              </div>
+              <div class="trust-item">
+                <img
+                  class="trust-item__icon"
+                  src="./src/assets/icon-lotus.png"
+                  alt=""
+                  aria-hidden="true"
+                />
+                <span class="trust-item__label">Naturalne podejście</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="services" id="oferta" aria-labelledby="services-title">
+          <div class="container services__inner">
+            <div class="section-heading services__heading">
+              <p class="eyebrow eyebrow--ornament">Nasza oferta</p>
+              <h2 class="section-heading__title" id="services-title">Szeroki wybór masaży</h2>
+            </div>
+
+            <div class="services__grid">
+              <article class="service-card">
+                <img
+                  class="service-card__image service-card__image--focus-high"
+                  src="./src/assets/card-image-2.png"
+                  alt="Masaż klasyczny"
+                />
+                <h3 class="service-card__title">Masaż<br />klasyczny</h3>
+                <button
+                  class="service-card__trigger"
+                  type="button"
+                  data-service="classic"
+                  aria-haspopup="dialog"
+                  aria-controls="service-dialog"
+                  aria-label="Poznaj masaż klasyczny"
+                >
+                  <span class="service-card__hint">
+                    Opis <span class="service-card__hint-icon" aria-hidden="true">+</span>
+                  </span>
+                </button>
+              </article>
+              <article class="service-card">
+                <img
+                  class="service-card__image"
+                  src="./src/assets/card-image-4.png"
+                  alt="Masaż gorącymi kamieniami"
+                />
+                <h3 class="service-card__title">Masaż gorącymi<br />kamieniami</h3>
+                <button
+                  class="service-card__trigger"
+                  type="button"
+                  data-service="hot-stones"
+                  aria-haspopup="dialog"
+                  aria-controls="service-dialog"
+                  aria-label="Poznaj masaż gorącymi kamieniami"
+                >
+                  <span class="service-card__hint">
+                    Opis <span class="service-card__hint-icon" aria-hidden="true">+</span>
+                  </span>
+                </button>
+              </article>
+              <article class="service-card">
+                <img
+                  class="service-card__image service-card__image--focus-high"
+                  src="./src/assets/card-image-5.png"
+                  alt="Masaż Kobido"
+                />
+                <h3 class="service-card__title">Kobido</h3>
+                <button
+                  class="service-card__trigger"
+                  type="button"
+                  data-service="kobido"
+                  aria-haspopup="dialog"
+                  aria-controls="service-dialog"
+                  aria-label="Poznaj masaż Kobido"
+                >
+                  <span class="service-card__hint">
+                    Opis <span class="service-card__hint-icon" aria-hidden="true">+</span>
+                  </span>
+                </button>
+              </article>
+              <article class="service-card">
+                <img
+                  class="service-card__image"
+                  src="./src/assets/card-image-3.png"
+                  alt="Masaż Gua Sha"
+                />
+                <h3 class="service-card__title">Gua Sha</h3>
+                <button
+                  class="service-card__trigger"
+                  type="button"
+                  data-service="gua-sha"
+                  aria-haspopup="dialog"
+                  aria-controls="service-dialog"
+                  aria-label="Poznaj masaż Gua Sha"
+                >
+                  <span class="service-card__hint">
+                    Opis <span class="service-card__hint-icon" aria-hidden="true">+</span>
+                  </span>
+                </button>
+              </article>
+              <article class="service-card">
+                <img
+                  class="service-card__image"
+                  src="./src/assets/card-image-7.png"
+                  alt="Masaż relaksacyjny"
+                />
+                <h3 class="service-card__title">Masaż<br />relaksacyjny</h3>
+                <button
+                  class="service-card__trigger"
+                  type="button"
+                  data-service="relaxation"
+                  aria-haspopup="dialog"
+                  aria-controls="service-dialog"
+                  aria-label="Poznaj masaż relaksacyjny"
+                >
+                  <span class="service-card__hint">
+                    Opis <span class="service-card__hint-icon" aria-hidden="true">+</span>
+                  </span>
+                </button>
+              </article>
+              <article class="service-card">
+                <img
+                  class="service-card__image"
+                  src="./src/assets/card-image-6.png"
+                  alt="Masaż Lomi Lomi"
+                />
+                <h3 class="service-card__title">Lomi Lomi</h3>
+                <button
+                  class="service-card__trigger"
+                  type="button"
+                  data-service="lomi-lomi"
+                  aria-haspopup="dialog"
+                  aria-controls="service-dialog"
+                  aria-label="Poznaj masaż Lomi Lomi"
+                >
+                  <span class="service-card__hint">
+                    Opis <span class="service-card__hint-icon" aria-hidden="true">+</span>
+                  </span>
+                </button>
+              </article>
+            </div>
+
+            <a class="button services__button" href="#kontakt">
+              <img
+                class="button__icon"
+                src="./src/assets/icon-calendar.png"
+                alt=""
+                aria-hidden="true"
+              />
+              <span class="button__label">Zobacz pełną ofertę</span>
+              <span class="button__arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="about" id="o-mnie" aria-labelledby="about-title">
+          <div class="about__image" aria-hidden="true"></div>
+          <div class="about__copy">
+            <div class="about__content">
+              <h2 class="about__title" id="about-title">
+                O mnie <span class="about__title-ornament" aria-hidden="true">─────</span>
+              </h2>
+              <p class="about__description">
+                Jestem Aleksandrą i od ponad 6 lat pomagam swoim klientom odzyskać komfort, pozbyć
+                się napięć i zadbać o dobre samopoczucie. W swojej pracy łączę wiedzę, doświadczenie
+                i indywidualne podejście do każdej osoby.
+              </p>
+              <img class="about__signature" src="./src/assets/sign.png" alt="Aleksandra" />
+              <a class="button about__button" href="#kontakt">
+                <img
+                  class="button__icon"
+                  src="./src/assets/icon-calendar.png"
+                  alt=""
+                  aria-hidden="true"
+                />
+                <span class="button__label">Dowiedz się więcej</span>
+                <span class="button__arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section class="reviews" id="opinie" aria-labelledby="reviews-title">
+          <div class="container reviews__inner">
+            <h2 class="reviews__title" id="reviews-title">
+              <span class="reviews__title-ornament" aria-hidden="true">────</span> Opinie klientów
+              <span class="reviews__title-ornament" aria-hidden="true">────</span>
+            </h2>
+            <div
+              class="reviews-carousel"
+              aria-labelledby="reviews-title"
+              aria-roledescription="karuzela"
+            >
+              <div class="reviews-carousel__viewport" tabindex="0">
+                <div class="reviews-carousel__track" id="reviews-track">
+                  <article
+                    class="review-card reviews-carousel__slide"
+                    role="group"
+                    aria-roledescription="slajd"
+                    aria-label="1 z 3"
+                  >
+                    <div class="review-card__media">
+                      <img
+                        class="review-card__image review-card__image--cafe"
+                        src="./src/assets/testimonial-cafe-v1.png"
+                        alt="Ilustracyjny portret młodej kobiety w kawiarni"
+                      />
+                      <span class="review-card__disclaimer">Zdjęcie ilustracyjne</span>
+                    </div>
+                    <div class="review-card__copy">
+                      <span class="review-card__quote-mark" aria-hidden="true">“</span>
+                      <blockquote class="review-card__quote">
+                        Miejsce na zweryfikowaną opinię klienta.
+                      </blockquote>
+                      <div class="review-card__meta">
+                        <p class="review-card__name">Opinia oczekuje na publikację</p>
+                        <p class="review-card__verification">
+                          Treść zostanie uzupełniona po weryfikacji.
+                        </p>
+                        <p class="review-card__note">
+                          Publikujemy wyłącznie autentyczne opinie za zgodą klientów.
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article
+                    class="review-card reviews-carousel__slide"
+                    role="group"
+                    aria-roledescription="slajd"
+                    aria-label="2 z 3"
+                  >
+                    <div class="review-card__media">
+                      <img
+                        class="review-card__image review-card__image--balcony"
+                        src="./src/assets/testimonial-balcony-v1.png"
+                        alt="Ilustracyjny portret mężczyzny na domowym balkonie"
+                      />
+                      <span class="review-card__disclaimer">Zdjęcie ilustracyjne</span>
+                    </div>
+                    <div class="review-card__copy">
+                      <span class="review-card__quote-mark" aria-hidden="true">“</span>
+                      <blockquote class="review-card__quote">
+                        Miejsce na kolejną zweryfikowaną opinię klienta.
+                      </blockquote>
+                      <div class="review-card__meta">
+                        <p class="review-card__name">Opinia oczekuje na publikację</p>
+                        <p class="review-card__verification">
+                          Treść zostanie uzupełniona po weryfikacji.
+                        </p>
+                        <p class="review-card__note">
+                          Materiał zostanie dodany po potwierdzeniu jego autentyczności.
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article
+                    class="review-card reviews-carousel__slide"
+                    role="group"
+                    aria-roledescription="slajd"
+                    aria-label="3 z 3"
+                  >
+                    <div class="review-card__media">
+                      <img
+                        class="review-card__image review-card__image--walk"
+                        src="./src/assets/testimonial-walk-v1.png"
+                        alt="Ilustracyjny portret starszej kobiety podczas spaceru"
+                      />
+                      <span class="review-card__disclaimer">Zdjęcie ilustracyjne</span>
+                    </div>
+                    <div class="review-card__copy">
+                      <span class="review-card__quote-mark" aria-hidden="true">“</span>
+                      <blockquote class="review-card__quote">
+                        Miejsce na zweryfikowaną opinię po wizycie.
+                      </blockquote>
+                      <div class="review-card__meta">
+                        <p class="review-card__name">Opinia oczekuje na publikację</p>
+                        <p class="review-card__verification">
+                          Treść zostanie uzupełniona po weryfikacji.
+                        </p>
+                        <p class="review-card__note">
+                          Dane klienta nie zostaną opublikowane bez jego zgody.
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </div>
+
+              <div class="reviews-carousel__controls">
+                <button
+                  class="reviews-carousel__control reviews-carousel__control--previous"
+                  type="button"
+                  aria-label="Poprzednia opinia"
+                  aria-controls="reviews-track"
+                >
+                  <span aria-hidden="true">←</span>
+                </button>
+                <div class="reviews-carousel__indicators" role="group" aria-label="Wybierz opinię">
+                  <button
+                    class="reviews-carousel__indicator reviews-carousel__indicator--active"
+                    type="button"
+                    aria-label="Pokaż opinię 1"
+                    aria-current="true"
+                  ></button>
+                  <button
+                    class="reviews-carousel__indicator"
+                    type="button"
+                    aria-label="Pokaż opinię 2"
+                  ></button>
+                  <button
+                    class="reviews-carousel__indicator"
+                    type="button"
+                    aria-label="Pokaż opinię 3"
+                  ></button>
+                </div>
+                <button
+                  class="reviews-carousel__control reviews-carousel__control--next"
+                  type="button"
+                  aria-label="Następna opinia"
+                  aria-controls="reviews-track"
+                >
+                  <span aria-hidden="true">→</span>
+                </button>
+              </div>
+              <p class="visually-hidden reviews-carousel__status" aria-live="polite">
+                Opinia 1 z 3
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="booking" aria-labelledby="booking-title">
+          <div class="container booking__inner">
+            <div class="booking__copy">
+              <h2 class="booking__title" id="booking-title">Zarezerwuj swoją wizytę już dziś</h2>
+              <p class="booking__description">Zadbaj o swoje zdrowie i dobre samopoczucie</p>
+            </div>
+            <a class="button booking__button" href="#kontakt">
+              <img
+                class="button__icon"
+                src="./src/assets/icon-calendar.png"
+                alt=""
+                aria-hidden="true"
+              />
+              <span class="button__label">Umów wizytę</span>
+              <span class="button__arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer" id="kontakt">
+        <div class="container site-footer__inner">
+          <a class="brand site-footer__brand" href="#start" aria-label="Wróć na początek strony">
+            <img
+              class="brand__image brand__image--footer"
+              src="./src/assets/logo.png"
+              alt="Masaż & Relaks"
+            />
+          </a>
+          <address class="site-footer__contacts">
+            <span class="site-footer__contact">[NUMER TELEFONU]</span>
+            <span class="site-footer__contact">[ADRES GABINETU]</span>
+            <span class="site-footer__contact">Instagram: [LINK]</span>
+            <span class="site-footer__contact">Facebook: [LINK]</span>
+          </address>
+        </div>
+      </footer>
+    </div>
+
+    <dialog
+      class="service-dialog"
+      id="service-dialog"
+      aria-labelledby="service-dialog-title"
+      aria-describedby="service-dialog-description"
+    >
+      <div class="service-dialog__surface">
+        <button class="service-dialog__close" type="button" aria-label="Zamknij opis masażu">
+          <span aria-hidden="true">×</span>
+        </button>
+        <p class="eyebrow service-dialog__eyebrow">Poznaj ten masaż</p>
+        <h2 class="service-dialog__title" id="service-dialog-title"></h2>
+        <p class="service-dialog__description" id="service-dialog-description"></p>
+        <div class="service-dialog__recommendation">
+          <p class="service-dialog__label">Dobry wybór, gdy potrzebujesz:</p>
+          <ul class="service-dialog__tags" id="service-dialog-tags"></ul>
+        </div>
+        <a class="button service-dialog__button" href="#kontakt">
+          <img
+            class="button__icon"
+            src="./src/assets/icon-calendar.png"
+            alt=""
+            aria-hidden="true"
+          />
+          <span class="button__label">Umów ten masaż</span>
+          <span class="button__arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </dialog>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>

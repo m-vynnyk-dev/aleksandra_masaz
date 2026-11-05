@@ -2,8 +2,8 @@ import { defineConfig } from 'vite';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 
 export default defineConfig({
-  // Relative paths so the build works on any host (GitHub Pages, Netlify, subfolder)
-  base: './',
+  // GitHub Pages serves this project from /aleksandra_masaz/.
+  base: '/aleksandra_masaz/',
   server: {
     port: 5173,
   },
