@@ -293,9 +293,10 @@ a:focus-visible {
 }
 
 .trust-item__icon {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   flex: 0 0 auto;
+  filter: drop-shadow(0 5px 12px rgb(240 190 114 / 12%));
 }
 
 /* Services */
