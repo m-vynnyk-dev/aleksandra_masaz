@@ -14,7 +14,6 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Playfair+Display:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./src/styles/reset.css" />
     <link rel="stylesheet" href="./src/styles/style.css" />
     <title>Masaż & Relaks — Aleksandra Masaż</title>
   </head>
@@ -57,7 +56,13 @@
                 </ul>
               </nav>
 
-              <a class="button site-header__cta" href="#kontakt">
+              <a
+                class="button site-header__cta"
+                href="#kontakt"
+                data-contact-open
+                aria-haspopup="dialog"
+                aria-controls="contact-dialog"
+              >
                 <img
                   class="button__icon"
                   src="./src/assets/icon-calendar.png"
@@ -65,7 +70,7 @@
                   aria-hidden="true"
                 />
                 <span class="button__label">Umów wizytę</span>
-                <span class="button__arrow" aria-hidden="true">→</span>
+                <span class="button__arrow" aria-hidden="true">&rarr;</span>
               </a>
             </div>
           </header>
@@ -76,16 +81,29 @@
               <p class="hero__intro">
                 Odkryj moc masażu i pozwól sobie na chwilę prawdziwego relaksu.
               </p>
-              <h1 class="hero__title" id="hero-title">Harmonia ciała<br />i spokój ducha</h1>
+              <h1 class="hero__title" id="hero-title">
+                Harmonia ciała<br />
+                i spokój ducha
+              </h1>
               <a class="button hero__button" href="#oferta">
+                <span class="button__label">Poznaj ofertę</span>
+                <span class="button__arrow" aria-hidden="true">&rarr;</span>
+              </a>
+              <a
+                class="button hero__button--cta button__hidden"
+                href="#kontakt"
+                data-contact-open
+                aria-haspopup="dialog"
+                aria-controls="contact-dialog"
+              >
                 <img
                   class="button__icon"
                   src="./src/assets/icon-calendar.png"
                   alt=""
                   aria-hidden="true"
                 />
-                <span class="button__label">Poznaj ofertę</span>
-                <span class="button__arrow" aria-hidden="true">→</span>
+                <span class="button__label">Umów wizytę</span>
+                <span class="button__arrow" aria-hidden="true">&rarr;</span>
               </a>
             </div>
           </div>
@@ -459,7 +477,13 @@
               <h2 class="booking__title" id="booking-title">Zarezerwuj swoją wizytę już dziś</h2>
               <p class="booking__description">Zadbaj o swoje zdrowie i dobre samopoczucie</p>
             </div>
-            <a class="button booking__button" href="#kontakt">
+            <a
+              class="button booking__button"
+              href="#kontakt"
+              data-contact-open
+              aria-haspopup="dialog"
+              aria-controls="contact-dialog"
+            >
               <img
                 class="button__icon"
                 src="./src/assets/icon-calendar.png"
@@ -509,7 +533,13 @@
           <p class="service-dialog__label">Dobry wybór, gdy potrzebujesz:</p>
           <ul class="service-dialog__tags" id="service-dialog-tags"></ul>
         </div>
-        <a class="button service-dialog__button" href="#kontakt">
+        <a
+          class="button service-dialog__button"
+          href="#kontakt"
+          data-contact-open
+          aria-haspopup="dialog"
+          aria-controls="contact-dialog"
+        >
           <img
             class="button__icon"
             src="./src/assets/icon-calendar.png"
@@ -519,6 +549,129 @@
           <span class="button__label">Umów ten masaż</span>
           <span class="button__arrow" aria-hidden="true">→</span>
         </a>
+      </div>
+    </dialog>
+
+    <dialog
+      class="contact-dialog"
+      id="contact-dialog"
+      aria-labelledby="contact-dialog-title"
+      aria-describedby="contact-dialog-description"
+    >
+      <div class="contact-dialog__surface">
+        <button class="contact-dialog__close" type="button" aria-label="Zamknij formularz">
+          <span aria-hidden="true">×</span>
+        </button>
+
+        <div class="contact-dialog__intro">
+          <p class="eyebrow contact-dialog__eyebrow">Umów wizytę</p>
+          <h2 class="contact-dialog__title" id="contact-dialog-title">
+            Napisz, czego potrzebujesz
+          </h2>
+          <p class="contact-dialog__description" id="contact-dialog-description">
+            Zostaw kontakt i krótką wiadomość. Aleksandra odezwie się, aby wspólnie wybrać masaż i
+            dogodny termin.
+          </p>
+        </div>
+
+        <aside class="contact-dialog__demo-note" aria-label="Informacja o wersji demonstracyjnej">
+          <span class="contact-dialog__demo-badge">Demo</span>
+          <p>
+            Formularz pokazuje docelowe działanie, ale jeszcze niczego nie wysyła. Nie wpisuj
+            prawdziwych danych.
+          </p>
+        </aside>
+
+        <form class="contact-form" novalidate>
+          <input class="contact-form__context" type="hidden" name="service" value="" />
+
+          <p class="contact-form__service contact-form__field--wide" hidden>
+            Wybrany masaż: <strong class="contact-form__service-name"></strong>
+          </p>
+
+          <div class="contact-form__trap" aria-hidden="true" inert>
+            <label for="contact-website">Strona internetowa</label>
+            <input
+              id="contact-website"
+              name="website"
+              type="text"
+              tabindex="-1"
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="contact-form__field">
+            <label class="contact-form__label" for="contact-name">Imię</label>
+            <input
+              class="contact-form__input"
+              id="contact-name"
+              name="name"
+              type="text"
+              maxlength="80"
+              autocomplete="name"
+              required
+            />
+          </div>
+
+          <div class="contact-form__field">
+            <label class="contact-form__label" for="contact-phone">Telefon</label>
+            <input
+              class="contact-form__input"
+              id="contact-phone"
+              name="phone"
+              type="tel"
+              minlength="6"
+              maxlength="30"
+              inputmode="tel"
+              autocomplete="tel"
+              required
+            />
+          </div>
+
+          <div class="contact-form__field contact-form__field--wide">
+            <label class="contact-form__label" for="contact-email">
+              E-mail <span class="contact-form__optional">opcjonalnie</span>
+            </label>
+            <input
+              class="contact-form__input"
+              id="contact-email"
+              name="email"
+              type="email"
+              maxlength="120"
+              inputmode="email"
+              autocomplete="email"
+            />
+          </div>
+
+          <div class="contact-form__field contact-form__field--wide">
+            <label class="contact-form__label" for="contact-message">Wiadomość</label>
+            <textarea
+              class="contact-form__input contact-form__textarea"
+              id="contact-message"
+              name="message"
+              minlength="10"
+              maxlength="1000"
+              rows="4"
+              required
+            ></textarea>
+          </div>
+
+          <label class="contact-form__consent contact-form__field--wide">
+            <input class="contact-form__checkbox" name="contactConsent" type="checkbox" required />
+            <span>
+              Zgadzam się na kontakt w sprawie przesłanego zapytania. Polityka prywatności zostanie
+              uzupełniona przed uruchomieniem formularza.
+            </span>
+          </label>
+
+          <div class="contact-form__footer contact-form__field--wide">
+            <button class="button contact-form__submit" type="submit">
+              <span class="button__label contact-form__submit-label">Wyślij zapytanie</span>
+              <span class="button__arrow" aria-hidden="true">→</span>
+            </button>
+            <p class="contact-form__status" role="status" aria-live="polite" hidden></p>
+          </div>
+        </form>
       </div>
     </dialog>
 

@@ -1,0 +1,454 @@
+/* Services grid, service cards, and service details dialog. */
+
+.services {
+  position: relative;
+  height: 560px;
+  overflow: hidden;
+  background-color: #6e5849;
+  background-image:
+    linear-gradient(rgb(58 40 27 / 50%), rgb(58 40 27 / 50%)), url('../../assets/card-image-7.png');
+  background-position: center;
+  background-size: cover;
+  color: var(--color-cream);
+}
+
+.services__inner {
+  position: relative;
+  height: 100%;
+}
+
+.services__heading {
+  position: absolute;
+  top: 43px;
+  right: 0;
+  left: 0;
+  text-align: center;
+}
+
+.section-heading__title {
+  margin-top: 4px;
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.services__grid {
+  position: absolute;
+  top: 262px;
+  right: 19px;
+  left: 19px;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.service-card {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+  border: 1px solid var(--color-gold-light);
+  border-radius: 9px;
+  background: #4c372a;
+  transition:
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease;
+}
+
+.service-card::after {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 92px;
+  background: linear-gradient(180deg, transparent, rgb(30 17 10 / 84%));
+  content: '';
+  pointer-events: none;
+}
+
+.service-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.service-card__image--focus-high {
+  object-position: center 35%;
+}
+
+.service-card:hover,
+.service-card--active {
+  border-color: #ffd89f;
+  box-shadow: 0 18px 34px rgb(24 12 5 / 24%);
+  transform: translateY(-4px);
+}
+
+.service-card:hover .service-card__image,
+.service-card--active .service-card__image {
+  transform: scale(1.045);
+}
+
+.service-card__title {
+  position: absolute;
+  z-index: 2;
+  right: 15px;
+  bottom: 17px;
+  left: 15px;
+  color: var(--color-cream);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.service-card__trigger {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  color: var(--color-cream);
+  cursor: pointer;
+}
+
+.service-card__trigger:focus-visible {
+  outline: none;
+}
+
+.service-card:has(.service-card__trigger:focus-visible) {
+  outline: 2px solid var(--color-gold-light);
+  outline-offset: 5px;
+}
+
+.service-card__hint {
+  position: absolute;
+  top: 11px;
+  right: 10px;
+  display: inline-flex;
+  min-height: 27px;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 9px 6px 10px;
+  border: 1px solid rgb(245 201 129 / 52%);
+  border-radius: 999px;
+  background: rgb(28 16 9 / 62%);
+  backdrop-filter: blur(8px);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.service-card__hint-icon {
+  display: grid;
+  width: 14px;
+  height: 14px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-gold);
+  color: var(--color-night);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.service-card:hover .service-card__hint,
+.service-card--active .service-card__hint {
+  background: var(--color-gold-light);
+  color: var(--color-night);
+}
+
+.services__button {
+  position: absolute;
+  top: 170px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.services__button:hover {
+  transform: translate(-50%, -2px);
+}
+
+.service-dialog {
+  width: min(630px, calc(100% - 40px));
+  max-width: none;
+  max-height: calc(100dvh - 40px);
+  margin: auto;
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+  color: var(--color-ink);
+}
+
+.service-dialog::backdrop {
+  background: rgb(22 12 7 / 72%);
+  backdrop-filter: blur(9px);
+}
+
+.service-dialog__surface {
+  position: relative;
+  padding: 43px 48px 40px;
+  overflow: hidden;
+  border: 1px solid rgb(232 185 120 / 58%);
+  border-radius: 34px 12px 34px 12px;
+  background:
+    radial-gradient(circle at 100% 0%, rgb(232 185 120 / 24%), transparent 38%),
+    linear-gradient(145deg, #fffaf4, #f5e4d1);
+  box-shadow: 0 34px 90px rgb(12 6 3 / 38%);
+}
+
+.service-dialog[open] .service-dialog__surface {
+  animation: service-dialog-enter 280ms cubic-bezier(0.22, 0.75, 0.25, 1) both;
+}
+
+.service-dialog__surface::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 7px;
+  background: linear-gradient(var(--color-gold-light), #9d6c38);
+  content: '';
+}
+
+.service-dialog__close {
+  position: absolute;
+  z-index: 1;
+  top: 18px;
+  right: 18px;
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 1px solid rgb(64 39 24 / 16%);
+  border-radius: 50%;
+  background: rgb(255 250 244 / 72%);
+  color: var(--color-ink);
+  cursor: pointer;
+  font: 300 24px/1 var(--font-body);
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.service-dialog__close:hover {
+  background: var(--color-gold-light);
+  transform: rotate(8deg);
+}
+
+.service-dialog__eyebrow {
+  color: #a06f39;
+}
+
+.service-dialog__title {
+  max-width: 500px;
+  margin-top: 9px;
+  padding-right: 38px;
+  font-family: var(--font-display);
+  font-size: clamp(34px, 5vw, 48px);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+}
+
+.service-dialog__description {
+  max-width: 520px;
+  margin-top: 19px;
+  color: rgb(37 24 17 / 82%);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.service-dialog__recommendation {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid rgb(92 59 37 / 14%);
+}
+
+.service-dialog__label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.service-dialog__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 11px;
+}
+
+.service-dialog__tag {
+  padding: 7px 11px;
+  border: 1px solid rgb(179 126 69 / 26%);
+  border-radius: 999px;
+  background: rgb(255 250 244 / 68%);
+  color: rgb(37 24 17 / 76%);
+  font-size: 10px;
+  line-height: 1;
+}
+
+.service-dialog__button {
+  margin-top: 27px;
+}
+
+@keyframes service-dialog-enter {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 1199px) {
+  .services {
+    height: auto;
+    min-height: 780px;
+  }
+
+  .services__inner {
+    display: flex;
+    flex-direction: column;
+    padding-block: 48px;
+  }
+
+  .services__heading,
+  .services__grid,
+  .services__button {
+    position: static;
+  }
+
+  .services__grid {
+    margin-top: 34px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .services__button {
+    margin: 32px auto 0;
+    transform: none;
+  }
+
+  .services__button:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 767px) {
+  .services {
+    min-height: 0;
+    background-position: center;
+  }
+
+  .services__inner {
+    width: calc(100% - 40px);
+    padding-block: 42px 47px;
+  }
+
+  .services__grid {
+    margin-top: 30px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 29px 16px;
+  }
+
+  .service-card {
+    height: 220px;
+  }
+
+  .service-card__title {
+    right: 8px;
+    bottom: 14px;
+    left: 8px;
+    font-size: 13px;
+  }
+
+  .service-card__hint {
+    top: 8px;
+    right: 8px;
+    min-height: 25px;
+    padding: 5px 8px;
+    font-size: 8px;
+  }
+
+  .services__button {
+    align-self: flex-start;
+    margin: 51px 0 0;
+  }
+
+  .service-dialog {
+    width: 100%;
+    max-height: calc(100dvh - 18px);
+    margin: auto 0 0;
+  }
+
+  .service-dialog__surface {
+    max-height: calc(100dvh - 18px);
+    padding: 39px 24px 30px;
+    overflow-y: auto;
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+    border-radius: 28px 28px 0 0;
+  }
+
+  .service-dialog__surface::before {
+    right: 42%;
+    bottom: auto;
+    left: 42%;
+    width: auto;
+    height: 4px;
+    border-radius: 999px;
+  }
+
+  .service-dialog__close {
+    top: 16px;
+    right: 18px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .service-dialog__title {
+    max-width: 300px;
+    margin-top: 7px;
+    font-size: 34px;
+  }
+
+  .service-dialog__description {
+    margin-top: 15px;
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .service-dialog__recommendation {
+    margin-top: 19px;
+    padding-top: 15px;
+  }
+
+  .service-dialog__button {
+    margin-top: 22px;
+  }
+}
+
+@media (max-width: 374px) {
+  .services__grid {
+    gap: 18px 10px;
+  }
+
+  .service-card {
+    height: 205px;
+  }
+}

@@ -1,0 +1,110 @@
+/* Reusable visual components shared by multiple landing-page sections. */
+
+.brand,
+.brand__image {
+  display: block;
+}
+
+.brand__image {
+  width: 243px;
+  height: auto;
+}
+
+.button {
+  display: flex;
+  min-height: 45px;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px 23px;
+  border-radius: 999px;
+  background: var(--color-gold);
+  color: #17100b;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.button:hover {
+  background: var(--color-gold-light);
+  box-shadow: 0 10px 30px rgb(19 10 3 / 18%);
+  transform: translateY(-2px);
+}
+
+.button__hidden {
+  display: none;
+}
+
+.button__icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.button__arrow {
+  margin-left: 2px;
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 0;
+}
+
+.eyebrow {
+  color: var(--color-gold-light);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  line-height: 1.8;
+  text-transform: uppercase;
+}
+
+.eyebrow--ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+}
+
+.eyebrow--ornament::before,
+.eyebrow--ornament::after {
+  width: 88px;
+  height: 1px;
+  background: color-mix(in srgb, var(--color-gold-light) 72%, transparent);
+  content: '';
+}
+
+.about__title,
+.reviews__title,
+.booking__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
+@media (max-width: 1199px) {
+  .brand__image {
+    width: 210px;
+  }
+}
+
+@media (max-width: 767px) {
+  .button {
+    min-height: 45px;
+    padding-inline: 22px;
+  }
+
+  .brand__image {
+    width: 218px;
+    max-width: calc(100vw - 126px);
+  }
+}
+
+@media (max-width: 374px) {
+  .services__inner,
+  .reviews__inner {
+    width: calc(100% - 28px);
+  }
+}

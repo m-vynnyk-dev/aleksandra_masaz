@@ -1,0 +1,137 @@
+/* About section styles. */
+
+.about {
+  position: relative;
+  display: grid;
+  height: 430px;
+  grid-template-columns: 1fr 1fr;
+  background-color: var(--color-cream-deep);
+  background-image:
+    linear-gradient(
+      90deg,
+      transparent 40%,
+      rgb(250 241 228 / 12%) 54%,
+      rgb(250 241 228 / 56%) 100%
+    ),
+    url('../../assets/background-about-continuum-v1.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.about__image {
+  min-width: 0;
+}
+
+.about__copy {
+  display: flex;
+  align-items: center;
+  padding: 45px clamp(40px, 6.25vw, 90px);
+}
+
+.about__content {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+}
+
+.about__title {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  font-size: 40px;
+  line-height: 1.45;
+}
+
+.about__title-ornament {
+  font-family: var(--font-body);
+  font-size: 16px;
+  letter-spacing: -0.2em;
+}
+
+.about__description {
+  max-width: 520px;
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.about__signature {
+  display: block;
+  width: 161px;
+  height: 58px;
+  margin-top: 8px;
+  object-fit: contain;
+}
+
+.about__button {
+  position: absolute;
+  right: 0;
+  bottom: 4px;
+}
+
+@media (max-width: 1199px) {
+  .about__copy {
+    padding-inline: 44px;
+  }
+
+  .about__button {
+    position: static;
+    margin-top: 18px;
+  }
+}
+
+@media (max-width: 767px) {
+  .about {
+    height: auto;
+    background-image:
+      linear-gradient(
+        180deg,
+        transparent 30%,
+        rgb(250 241 228 / 18%) 46%,
+        rgb(250 241 228 / 82%) 68%
+      ),
+      url('../../assets/background-about-continuum-mobile-v1.webp');
+    background-position: center;
+    grid-template-columns: 1fr;
+  }
+
+  .about__image {
+    height: 270px;
+  }
+
+  .about__copy {
+    min-height: 0;
+    align-items: flex-start;
+    padding: 33px 24px 28px;
+  }
+
+  .about__title {
+    gap: 12px;
+    font-size: 31px;
+    line-height: 1.2;
+  }
+
+  .about__title-ornament {
+    font-size: 12px;
+  }
+
+  .about__description {
+    display: block;
+    margin-top: 10px;
+    overflow: visible;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .about__signature {
+    display: block;
+    width: 136px;
+    height: 49px;
+    margin-top: 12px;
+  }
+
+  .about__button {
+    margin-top: 12px;
+  }
+}
