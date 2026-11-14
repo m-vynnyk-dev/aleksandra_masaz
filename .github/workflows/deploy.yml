@@ -34,6 +34,8 @@ jobs:
         run: npm ci
 
       - name: Build
+        env:
+          SITE_URL: https://m-vynnyk-dev.github.io/aleksandra_masaz/
         run: npm run build
 
       - name: Configure Pages

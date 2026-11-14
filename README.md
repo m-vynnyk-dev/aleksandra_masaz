@@ -13,6 +13,17 @@ npm install
 npm run dev
 ```
 
+## SEO and production URL
+
+Set `SITE_URL` to the final public URL in the hosting environment before building:
+
+```bash
+SITE_URL=https://example.com/ npm run build
+```
+
+This value configures the canonical URL, social preview URLs, structured data, sitemap, robots file,
+and the Vite base path. Use the full deployment path if the site is hosted in a subdirectory.
+
 ## Contact form
 
 The contact dialog runs in demo mode when no endpoint is configured. In this mode validation works,
